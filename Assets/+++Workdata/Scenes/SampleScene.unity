@@ -236,16 +236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f2814f089824cd4494b54dc4770a2b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effect: 4
-  timeToEffectBall: 10
-  maxSpeedValue: 10
-  minSpeedValue: 1
-  maxSpeedLimit: 12
-  minSpeedLimit: 2
-  waveAmplitude: 4
-  waveFrequency: 4
-  effectTime: 2
-  rotationSpeed: 50
+  effect: 5
 --- !u!61 &102625511
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -333,7 +324,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -5177388603050735206, guid: 8884154dfe85442a3a3578be807dbcdf, type: 3}
-  m_Color: {r: 0, g: 0.6500174, b: 0.9685534, a: 1}
+  m_Color: {r: 0.009433806, g: 0.5382534, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
@@ -1198,16 +1189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f2814f089824cd4494b54dc4770a2b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effect: 4
-  timeToEffectBall: 10
-  maxSpeedValue: 10
-  minSpeedValue: 1
-  maxSpeedLimit: 12
-  minSpeedLimit: 2
-  waveAmplitude: 4
-  waveFrequency: 4
-  effectTime: 2
-  rotationSpeed: 50
+  effect: 5
 --- !u!61 &710379001
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1295,7 +1277,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -5177388603050735206, guid: 8884154dfe85442a3a3578be807dbcdf, type: 3}
-  m_Color: {r: 0, g: 0.6500174, b: 0.9685534, a: 1}
+  m_Color: {r: 0.009433806, g: 0.5382534, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
@@ -1611,6 +1593,17 @@ MonoBehaviour:
   startingSpeed: 8
   hyphenCollider: {fileID: 0}
   pointCounter: {fileID: 1374850962}
+  timeToEffectBall: 0.5
+  maxSpeedValue: 10
+  minSpeedValue: 1
+  maxSpeedLimit: 20
+  minSpeedLimit: 2
+  waveAmplitude: 4
+  waveFrequency: 4
+  effectTime: 2
+  curveIntensity: 50
+  curveDuration: 4
+  rotationSpeed: 50
 --- !u!1 &1268581539
 GameObject:
   m_ObjectHideFlags: 0
@@ -2530,16 +2523,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f2814f089824cd4494b54dc4770a2b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effect: 4
-  timeToEffectBall: 10
-  maxSpeedValue: 10
-  minSpeedValue: 1
-  maxSpeedLimit: 12
-  minSpeedLimit: 2
-  waveAmplitude: 4
-  waveFrequency: 4
-  effectTime: 2
-  rotationSpeed: 50
+  effect: 5
 --- !u!61 &1666145560
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2627,7 +2611,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -5177388603050735206, guid: 8884154dfe85442a3a3578be807dbcdf, type: 3}
-  m_Color: {r: 0, g: 0.6500174, b: 0.9685534, a: 1}
+  m_Color: {r: 0.009433806, g: 0.5382534, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
@@ -2714,16 +2698,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f2814f089824cd4494b54dc4770a2b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effect: 4
-  timeToEffectBall: 10
-  maxSpeedValue: 10
-  minSpeedValue: 1
-  maxSpeedLimit: 12
-  minSpeedLimit: 2
-  waveAmplitude: 4
-  waveFrequency: 4
-  effectTime: 2
-  rotationSpeed: 50
+  effect: 5
 --- !u!61 &2105654796
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2811,7 +2786,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -5177388603050735206, guid: 8884154dfe85442a3a3578be807dbcdf, type: 3}
-  m_Color: {r: 0, g: 0.6500174, b: 0.9685534, a: 1}
+  m_Color: {r: 0.009433806, g: 0.5382534, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
