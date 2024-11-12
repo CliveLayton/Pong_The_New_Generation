@@ -6,10 +6,12 @@ public class BallBehavior : MonoBehaviour
 {
     #region Variables
 
+    public float currentSpeed;
+    
     [SerializeField] private float startingSpeed = 3f;
     [SerializeField] private BoxCollider2D hyphenCollider;
     [SerializeField] private PointCounter pointCounter;
-    
+
     private Rigidbody2D rb;
     private CircleCollider2D col;
 
@@ -21,6 +23,7 @@ public class BallBehavior : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<CircleCollider2D>();
+        currentSpeed = startingSpeed;
     }
 
     private void Start()
@@ -35,21 +38,14 @@ public class BallBehavior : MonoBehaviour
 
     private void Update()
     {
-        if (rb.velocity.magnitude != startingSpeed)
-        {
-            rb.velocity = rb.velocity.normalized * startingSpeed;
-        }
+        rb.velocity = rb.velocity.normalized * currentSpeed;
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            //float currentSpeed = rb.velocity.magnitude;
-            
             rb.velocity = new Vector2(rb.velocity.x, Mathf.Clamp(rb.velocity.y + other.rigidbody.velocity.y, -10, 10));
-
-            //rb.velocity = rb.velocity.normalized * currentSpeed;
         }
     }
 
