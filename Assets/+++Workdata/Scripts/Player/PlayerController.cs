@@ -1,4 +1,4 @@
-using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -18,6 +18,10 @@ public class PlayerController : MonoBehaviour
     private Vector2 moveInput;
     private bool downMovement;
     private int directionMultiply;
+    private bool isWavyReflect = false;
+    private bool isCurvyReflect = false;
+    private BallBehavior ball;
+    private bool wasPerformed = false;
 
     #endregion
 
@@ -45,18 +49,59 @@ public class PlayerController : MonoBehaviour
     private void OnEnable()
     {
         inputActions.Player.Enable();
+
+        inputActions.Player.CurvyReflect.performed += CurvyReflect;
+        inputActions.Player.WavyReflect.performed += WavyReflect;
     }
 
     private void OnDisable()
     {
         inputActions.Player.Disable();
+        
+        inputActions.Player.CurvyReflect.performed -= CurvyReflect;
+        inputActions.Player.WavyReflect.performed -= WavyReflect;
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Ball"))
+        {
+            ball = other.gameObject.GetComponent<BallBehavior>();
+
+            if (isWavyReflect)
+            {
+                ball.ChangeBallMovementWavy();
+            }
+            else if (isCurvyReflect)
+            {
+                ball.ChangeBallMovementCurvy();
+            }
+        }
     }
 
     #endregion
 
     #region InputMethods
 
+    private void CurvyReflect(InputAction.CallbackContext context)
+    {
+        if (context.performed && !wasPerformed)
+        {
+            wasPerformed = true;
+            isCurvyReflect = true;
+            StartCoroutine(ResetReflection(true));
+        }
+    }
 
+    private void WavyReflect(InputAction.CallbackContext context)
+    {
+        if (context.performed && !wasPerformed)
+        {
+            wasPerformed = true;
+            isWavyReflect = true;
+            StartCoroutine(ResetReflection(false));
+        }
+    }
 
     #endregion
 
@@ -91,6 +136,22 @@ public class PlayerController : MonoBehaviour
         rb.velocity = new Vector2(0, currentSpeed * directionMultiply);
 
         lastMovement.y = currentSpeed;
+    }
+
+    private IEnumerator ResetReflection(bool isCurvy)
+    {
+        if (isCurvy)
+        {
+            yield return new WaitForSeconds(0.2f);
+            isCurvyReflect = false;
+            wasPerformed = false;
+        }
+        else
+        {
+            yield return new WaitForSeconds(0.2f);
+            isWavyReflect = false;
+            wasPerformed = false;
+        }
     }
 
     #endregion

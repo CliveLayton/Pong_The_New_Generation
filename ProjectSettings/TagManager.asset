@@ -8,6 +8,7 @@ TagManager:
   - Goal1
   - Goal2
   - GameField
+  - Wall
   layers:
   - Default
   - TransparentFX

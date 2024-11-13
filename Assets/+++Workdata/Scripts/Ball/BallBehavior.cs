@@ -10,7 +10,6 @@ public class BallBehavior : MonoBehaviour
     public float currentSpeed;
     
     [SerializeField] private float startingSpeed = 3f;
-    [SerializeField] private BoxCollider2D hyphenCollider;
     [SerializeField] private PointCounter pointCounter;
 
     [Header("Speed Change Item")]
@@ -96,6 +95,12 @@ public class BallBehavior : MonoBehaviour
             isWavy = false;
             isCurvy = false;
             rb.velocity = new Vector2(rb.velocity.x, Mathf.Clamp(rb.velocity.y + other.rigidbody.velocity.y, -10, 10));
+        }
+
+        if (other.gameObject.CompareTag("Wall"))
+        {
+            isWavy = false;
+            isCurvy = false;
         }
     }
 

@@ -48,9 +48,18 @@ namespace UnityEngine.InputSystem
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Fire"",
+                    ""name"": ""CurvyReflect"",
                     ""type"": ""Button"",
                     ""id"": ""6c2ab1b8-8984-453a-af3d-a3c78ae1679a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""WavyReflect"",
+                    ""type"": ""Button"",
+                    ""id"": ""680ed286-7be9-47ef-ab07-e55dd9418972"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -148,56 +157,23 @@ namespace UnityEngine.InputSystem
                 },
                 {
                     ""name"": """",
-                    ""id"": ""143bb1cd-cc10-4eca-a2f0-a3664166fe91"",
-                    ""path"": ""<Gamepad>/rightTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Gamepad"",
-                    ""action"": ""Fire"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""05f6913d-c316-48b2-a6bb-e225f14c7960"",
-                    ""path"": ""<Mouse>/leftButton"",
+                    ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Fire"",
+                    ""action"": ""CurvyReflect"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""886e731e-7071-4ae4-95c0-e61739dad6fd"",
-                    ""path"": ""<Touchscreen>/primaryTouch/tap"",
+                    ""id"": ""2635024d-d77a-4ae3-87b8-2b6ed5879b2d"",
+                    ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": "";Touch"",
-                    ""action"": ""Fire"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""ee3d0cd2-254e-47a7-a8cb-bc94d9658c54"",
-                    ""path"": ""<Joystick>/trigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Joystick"",
-                    ""action"": ""Fire"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""8255d333-5683-4943-a58a-ccb207ff1dce"",
-                    ""path"": ""<XRController>/{PrimaryAction}"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""XR"",
-                    ""action"": ""Fire"",
+                    ""groups"": """",
+                    ""action"": ""WavyReflect"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -742,9 +718,18 @@ namespace UnityEngine.InputSystem
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Fire"",
+                    ""name"": ""CurvyReflect"",
                     ""type"": ""Button"",
                     ""id"": ""2fc3d86b-9f30-4e34-bee2-ce6681a15c15"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""WavyReflect"",
+                    ""type"": ""Button"",
+                    ""id"": ""0877ba08-e659-4f62-8d30-f5410e2b0b67"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -842,56 +827,23 @@ namespace UnityEngine.InputSystem
                 },
                 {
                     ""name"": """",
-                    ""id"": ""99002bf2-5b1f-491e-a2cb-95d4732c5703"",
-                    ""path"": ""<Gamepad>/rightTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Gamepad"",
-                    ""action"": ""Fire"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""6ab1a095-2cf4-4b36-bc5b-a913ee743deb"",
-                    ""path"": ""<Mouse>/leftButton"",
+                    ""path"": ""<Keyboard>/leftArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Fire"",
+                    ""action"": ""CurvyReflect"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""295fcbf0-6f83-4546-9266-7ff3b2080603"",
-                    ""path"": ""<Touchscreen>/primaryTouch/tap"",
+                    ""id"": ""a19fdffc-cc61-4a30-912f-421193372285"",
+                    ""path"": ""<Keyboard>/rightArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": "";Touch"",
-                    ""action"": ""Fire"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""b19e2aad-4cb8-4595-b5d2-f9a95c1fb68a"",
-                    ""path"": ""<Joystick>/trigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Joystick"",
-                    ""action"": ""Fire"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""57dd6ffc-c8ea-4b90-beba-2b1cbaf74dc7"",
-                    ""path"": ""<XRController>/{PrimaryAction}"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""XR"",
-                    ""action"": ""Fire"",
+                    ""groups"": """",
+                    ""action"": ""WavyReflect"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -965,7 +917,8 @@ namespace UnityEngine.InputSystem
             m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
             m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
             m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
-            m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
+            m_Player_CurvyReflect = m_Player.FindAction("CurvyReflect", throwIfNotFound: true);
+            m_Player_WavyReflect = m_Player.FindAction("WavyReflect", throwIfNotFound: true);
             // UI
             m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
             m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -982,7 +935,8 @@ namespace UnityEngine.InputSystem
             m_Player2 = asset.FindActionMap("Player2", throwIfNotFound: true);
             m_Player2_Move = m_Player2.FindAction("Move", throwIfNotFound: true);
             m_Player2_Look = m_Player2.FindAction("Look", throwIfNotFound: true);
-            m_Player2_Fire = m_Player2.FindAction("Fire", throwIfNotFound: true);
+            m_Player2_CurvyReflect = m_Player2.FindAction("CurvyReflect", throwIfNotFound: true);
+            m_Player2_WavyReflect = m_Player2.FindAction("WavyReflect", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -1046,14 +1000,16 @@ namespace UnityEngine.InputSystem
         private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
         private readonly InputAction m_Player_Move;
         private readonly InputAction m_Player_Look;
-        private readonly InputAction m_Player_Fire;
+        private readonly InputAction m_Player_CurvyReflect;
+        private readonly InputAction m_Player_WavyReflect;
         public struct PlayerActions
         {
             private @PlayerInputMap m_Wrapper;
             public PlayerActions(@PlayerInputMap wrapper) { m_Wrapper = wrapper; }
             public InputAction @Move => m_Wrapper.m_Player_Move;
             public InputAction @Look => m_Wrapper.m_Player_Look;
-            public InputAction @Fire => m_Wrapper.m_Player_Fire;
+            public InputAction @CurvyReflect => m_Wrapper.m_Player_CurvyReflect;
+            public InputAction @WavyReflect => m_Wrapper.m_Player_WavyReflect;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -1069,9 +1025,12 @@ namespace UnityEngine.InputSystem
                 @Look.started += instance.OnLook;
                 @Look.performed += instance.OnLook;
                 @Look.canceled += instance.OnLook;
-                @Fire.started += instance.OnFire;
-                @Fire.performed += instance.OnFire;
-                @Fire.canceled += instance.OnFire;
+                @CurvyReflect.started += instance.OnCurvyReflect;
+                @CurvyReflect.performed += instance.OnCurvyReflect;
+                @CurvyReflect.canceled += instance.OnCurvyReflect;
+                @WavyReflect.started += instance.OnWavyReflect;
+                @WavyReflect.performed += instance.OnWavyReflect;
+                @WavyReflect.canceled += instance.OnWavyReflect;
             }
 
             private void UnregisterCallbacks(IPlayerActions instance)
@@ -1082,9 +1041,12 @@ namespace UnityEngine.InputSystem
                 @Look.started -= instance.OnLook;
                 @Look.performed -= instance.OnLook;
                 @Look.canceled -= instance.OnLook;
-                @Fire.started -= instance.OnFire;
-                @Fire.performed -= instance.OnFire;
-                @Fire.canceled -= instance.OnFire;
+                @CurvyReflect.started -= instance.OnCurvyReflect;
+                @CurvyReflect.performed -= instance.OnCurvyReflect;
+                @CurvyReflect.canceled -= instance.OnCurvyReflect;
+                @WavyReflect.started -= instance.OnWavyReflect;
+                @WavyReflect.performed -= instance.OnWavyReflect;
+                @WavyReflect.canceled -= instance.OnWavyReflect;
             }
 
             public void RemoveCallbacks(IPlayerActions instance)
@@ -1226,14 +1188,16 @@ namespace UnityEngine.InputSystem
         private List<IPlayer2Actions> m_Player2ActionsCallbackInterfaces = new List<IPlayer2Actions>();
         private readonly InputAction m_Player2_Move;
         private readonly InputAction m_Player2_Look;
-        private readonly InputAction m_Player2_Fire;
+        private readonly InputAction m_Player2_CurvyReflect;
+        private readonly InputAction m_Player2_WavyReflect;
         public struct Player2Actions
         {
             private @PlayerInputMap m_Wrapper;
             public Player2Actions(@PlayerInputMap wrapper) { m_Wrapper = wrapper; }
             public InputAction @Move => m_Wrapper.m_Player2_Move;
             public InputAction @Look => m_Wrapper.m_Player2_Look;
-            public InputAction @Fire => m_Wrapper.m_Player2_Fire;
+            public InputAction @CurvyReflect => m_Wrapper.m_Player2_CurvyReflect;
+            public InputAction @WavyReflect => m_Wrapper.m_Player2_WavyReflect;
             public InputActionMap Get() { return m_Wrapper.m_Player2; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -1249,9 +1213,12 @@ namespace UnityEngine.InputSystem
                 @Look.started += instance.OnLook;
                 @Look.performed += instance.OnLook;
                 @Look.canceled += instance.OnLook;
-                @Fire.started += instance.OnFire;
-                @Fire.performed += instance.OnFire;
-                @Fire.canceled += instance.OnFire;
+                @CurvyReflect.started += instance.OnCurvyReflect;
+                @CurvyReflect.performed += instance.OnCurvyReflect;
+                @CurvyReflect.canceled += instance.OnCurvyReflect;
+                @WavyReflect.started += instance.OnWavyReflect;
+                @WavyReflect.performed += instance.OnWavyReflect;
+                @WavyReflect.canceled += instance.OnWavyReflect;
             }
 
             private void UnregisterCallbacks(IPlayer2Actions instance)
@@ -1262,9 +1229,12 @@ namespace UnityEngine.InputSystem
                 @Look.started -= instance.OnLook;
                 @Look.performed -= instance.OnLook;
                 @Look.canceled -= instance.OnLook;
-                @Fire.started -= instance.OnFire;
-                @Fire.performed -= instance.OnFire;
-                @Fire.canceled -= instance.OnFire;
+                @CurvyReflect.started -= instance.OnCurvyReflect;
+                @CurvyReflect.performed -= instance.OnCurvyReflect;
+                @CurvyReflect.canceled -= instance.OnCurvyReflect;
+                @WavyReflect.started -= instance.OnWavyReflect;
+                @WavyReflect.performed -= instance.OnWavyReflect;
+                @WavyReflect.canceled -= instance.OnWavyReflect;
             }
 
             public void RemoveCallbacks(IPlayer2Actions instance)
@@ -1331,7 +1301,8 @@ namespace UnityEngine.InputSystem
         {
             void OnMove(InputAction.CallbackContext context);
             void OnLook(InputAction.CallbackContext context);
-            void OnFire(InputAction.CallbackContext context);
+            void OnCurvyReflect(InputAction.CallbackContext context);
+            void OnWavyReflect(InputAction.CallbackContext context);
         }
         public interface IUIActions
         {
@@ -1350,7 +1321,8 @@ namespace UnityEngine.InputSystem
         {
             void OnMove(InputAction.CallbackContext context);
             void OnLook(InputAction.CallbackContext context);
-            void OnFire(InputAction.CallbackContext context);
+            void OnCurvyReflect(InputAction.CallbackContext context);
+            void OnWavyReflect(InputAction.CallbackContext context);
         }
     }
 }
