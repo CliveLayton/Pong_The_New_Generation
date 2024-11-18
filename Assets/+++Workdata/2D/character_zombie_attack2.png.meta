@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b7790e15772ab4f44887497a389f0a65
+guid: 25d157409512a1d48bb005a391b4cf4d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -95,7 +95,28 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: character_zombie_attack2_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 0
+        width: 185
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74017ffb2bb560e41b1d3cb57b7155d8
+      internalID: -177280029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -106,7 +127,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      character_zombie_attack2_0: -177280029
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
