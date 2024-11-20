@@ -8,6 +8,8 @@ public class Player2Controller : MonoBehaviour
 
     [SerializeField] private float movementSpeed = 5f;
     [SerializeField] private float speedChangeRate = 10f;
+    [SerializeField] private SpriteRenderer wobbleSprite;
+    [SerializeField] private float wobbleTime = 0.5f;
     
     private PlayerInputMap inputActions;
     private InputAction moveAction;
@@ -66,6 +68,8 @@ public class Player2Controller : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ball"))
         {
+            StartCoroutine(WobbleSprite());
+            
             ball = other.gameObject.GetComponent<BallBehavior>();
 
             if (isWavyReflect)
@@ -152,6 +156,13 @@ public class Player2Controller : MonoBehaviour
             isWavyReflect = false;
             wasPerformed = false;
         }
+    }
+    
+    private IEnumerator WobbleSprite()
+    {
+        wobbleSprite.enabled = true;
+        yield return new WaitForSeconds(wobbleTime);
+        wobbleSprite.enabled = false;
     }
 
     #endregion

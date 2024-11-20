@@ -11,7 +11,11 @@ public class BallBehavior : MonoBehaviour
     
     [SerializeField] private float startingSpeed = 3f;
     [SerializeField] private PointCounter pointCounter;
-
+    [SerializeField] private GameObject particlesPrefab;
+    [SerializeField] private Quaternion mirrorParticles;
+    [SerializeField] private float desolveTime = 0.5f;
+    [SerializeField] private float respawnTime = 0.5f;
+    
     [Header("Speed Change Item")]
     [SerializeField] private float timeToEffectBall = 0.5f;
     [SerializeField] private float maxSpeedValue = 10f;
@@ -42,6 +46,9 @@ public class BallBehavior : MonoBehaviour
     private bool isCurvy = false;
     private GameObject gameField;
     private float startTime;
+    private GameObject ballParticlesInst;
+    private float fadeNumber = 0f;
+    private Material ballMaterial;
 
     #endregion
 
@@ -52,6 +59,7 @@ public class BallBehavior : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<CircleCollider2D>();
         currentSpeed = startingSpeed;
+        ballMaterial = GetComponentInChildren<SpriteRenderer>().material;
     }
 
     private void Start()
@@ -108,14 +116,34 @@ public class BallBehavior : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Goal1"))
         {
+            if (rb.velocity.x > 0)
+            {
+                ballParticlesInst = Instantiate(particlesPrefab, transform.position, mirrorParticles);
+                ballParticlesInst.transform.SetParent(null);
+            }
+            else
+            {
+                ballParticlesInst = Instantiate(particlesPrefab, transform.position, Quaternion.identity);
+                ballParticlesInst.transform.SetParent(null);
+            }
             pointCounter.CountPointsUp(2);
-            this.transform.position = Vector3.zero;
+            StartCoroutine(DisolveBall(1));
         }
 
         if (other.gameObject.CompareTag("Goal2"))
         {
+            if (rb.velocity.x > 0)
+            {
+                ballParticlesInst = Instantiate(particlesPrefab, transform.position, mirrorParticles);
+                ballParticlesInst.transform.SetParent(null);
+            }
+            else
+            {
+                ballParticlesInst = Instantiate(particlesPrefab, transform.position, Quaternion.identity);
+                ballParticlesInst.transform.SetParent(null);
+            }
             pointCounter.CountPointsUp(1);
-            this.transform.position = Vector3.zero;
+            StartCoroutine(DisolveBall(-1));
         }
     }
 
@@ -276,6 +304,23 @@ public class BallBehavior : MonoBehaviour
             
             yield return null; //wait until the next frame
         }
+    }
+
+    private IEnumerator DisolveBall(float direction)
+    {
+        fadeNumber = 0f;
+        ballMaterial.SetFloat("_Fade", fadeNumber);
+        rb.velocity = Vector2.zero;
+        this.transform.position = Vector3.zero;
+        yield return new WaitForSeconds(respawnTime);
+        while (fadeNumber < 1)
+        {
+            fadeNumber += Time.deltaTime * desolveTime;
+            ballMaterial.SetFloat("_Fade", fadeNumber);
+            yield return null;
+        }
+        
+        rb.velocity = new Vector2(direction * currentSpeed, direction * currentSpeed);
     }
 
     #endregion

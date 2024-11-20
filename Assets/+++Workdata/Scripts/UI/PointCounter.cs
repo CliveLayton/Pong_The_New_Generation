@@ -9,7 +9,8 @@ public class PointCounter : MonoBehaviour
    [SerializeField] private TextMeshProUGUI player1Points;
    [SerializeField] private TextMeshProUGUI player2Points;
 
-   [SerializeField] private CanvasGroup winPanel;
+   [SerializeField] private CanvasGroup player1Panel;
+   [SerializeField] private CanvasGroup player2Panel;
    
    private int pointsPlayer1;
    private int pointsPlayer2;
@@ -21,7 +22,8 @@ public class PointCounter : MonoBehaviour
 
    private void Start()
    {
-      winPanel.HideCanvasGroup();
+      player1Panel.HideCanvasGroup();
+      player2Panel.HideCanvasGroup();
       player1Points.text = "0";
       player2Points.text = "0";
       pointsPlayer1 = resetPoint;
@@ -45,16 +47,23 @@ public class PointCounter : MonoBehaviour
          player2Points.text = pointsPlayer2.ToString();
       }
 
-      if (pointsPlayer1 >= 10 || pointsPlayer2 >= 10)
+      if (pointsPlayer1 >= 10)
       {
-         winPanel.ShowCanvasGroup();
+         player1Panel.ShowCanvasGroup();
+         Time.timeScale = 0f;
+      }
+
+      if (pointsPlayer2 >= 10)
+      {
+         player2Panel.ShowCanvasGroup();
          Time.timeScale = 0f;
       }
    }
 
    public void RestartGame()
    {
-      winPanel.HideCanvasGroup();
+      player1Panel.HideCanvasGroup();
+      player2Panel.HideCanvasGroup();
       ResetPoints();
       Time.timeScale = 1f;
    }
