@@ -2816,6 +2816,7 @@ MonoBehaviour:
   particlesPrefab: {fileID: 2084919596970287468, guid: fb5523edaa2400a48ac3e2d144840d1a, type: 3}
   mirrorParticles: {x: 0, y: 0, z: 1, w: -0.00000004371139}
   desolveTime: 0.5
+  respawnTime: 0.5
   timeToEffectBall: 0.5
   maxSpeedValue: 10
   minSpeedValue: 1
