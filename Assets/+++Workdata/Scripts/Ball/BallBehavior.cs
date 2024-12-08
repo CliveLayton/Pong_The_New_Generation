@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 public class BallBehavior : MonoBehaviour
@@ -15,7 +16,9 @@ public class BallBehavior : MonoBehaviour
     [SerializeField] private Quaternion mirrorParticles;
     [SerializeField] private float desolveTime = 0.5f;
     [SerializeField] private float respawnTime = 0.5f;
-    
+    [ColorUsage(true, true)]
+    [SerializeField] private Color normalTrailColor;
+
     [Header("Speed Change Item")]
     [SerializeField] private float timeToEffectBall = 0.5f;
     [SerializeField] private float maxSpeedValue = 10f;
@@ -29,10 +32,14 @@ public class BallBehavior : MonoBehaviour
     [Tooltip("Frequency of the wave")] 
     [SerializeField] private float waveFrequency = 2f;
     [SerializeField] private float effectTime;
+    [ColorUsage(true, true)]
+    [SerializeField] private Color waveTrailColor;
     
     [Header("Curve Move Item")]
     public float curveIntensity = 1f;   // Intensity of the curve (how steep the curve is)
     public float curveDuration = 2f;    // Duration for which the curve pattern is active
+    [ColorUsage(true, true)]
+    [SerializeField] private Color curveTrailColor;
 
 
     [Header("Mirror Field Item")]
@@ -40,15 +47,20 @@ public class BallBehavior : MonoBehaviour
 
     private Rigidbody2D rb;
     private CircleCollider2D col;
+    private TrailRenderer trailRenderer;
     private float targetSpeed;
     private bool isChangingSpeed = false;
     private bool isWavy = false;
     private bool isCurvy = false;
+    private bool isRespawing = false;
     private GameObject gameField;
     private float startTime;
     private GameObject ballParticlesInst;
     private float fadeNumber = 0f;
     private Material ballMaterial;
+    private int ballFade = Shader.PropertyToID("_Fade");
+    private Material trailMaterial;
+    private int trailBaseColor = Shader.PropertyToID("_Base_Color");
 
     #endregion
 
@@ -60,6 +72,8 @@ public class BallBehavior : MonoBehaviour
         col = GetComponent<CircleCollider2D>();
         currentSpeed = startingSpeed;
         ballMaterial = GetComponentInChildren<SpriteRenderer>().material;
+        trailRenderer = GetComponentInChildren<TrailRenderer>();
+        trailMaterial = GetComponentInChildren<TrailRenderer>().material;
     }
 
     private void Start()
@@ -83,12 +97,12 @@ public class BallBehavior : MonoBehaviour
             isChangingSpeed = false;
         }
 
-        if (isWavy)
+        if (isWavy && !isRespawing)
         {
             WavyMovement();
         }
 
-        if (isCurvy)
+        if (isCurvy && !isRespawing)
         {
             CurvyMovement();
         }
@@ -102,6 +116,7 @@ public class BallBehavior : MonoBehaviour
         {
             isWavy = false;
             isCurvy = false;
+            trailMaterial.SetColor(trailBaseColor, normalTrailColor);
             rb.velocity = new Vector2(rb.velocity.x, Mathf.Clamp(rb.velocity.y + other.rigidbody.velocity.y, -10, 10));
         }
 
@@ -109,6 +124,7 @@ public class BallBehavior : MonoBehaviour
         {
             isWavy = false;
             isCurvy = false;
+            trailMaterial.SetColor(trailBaseColor, normalTrailColor);
         }
     }
 
@@ -205,6 +221,7 @@ public class BallBehavior : MonoBehaviour
 
     private void WavyMovement()
     {
+        trailMaterial.SetColor(trailBaseColor, waveTrailColor);
         rb.velocity = new Vector2(rb.velocity.x, 0);
             
         // Apply wave force (vertical oscillation)
@@ -217,6 +234,7 @@ public class BallBehavior : MonoBehaviour
 
     private void CurvyMovement()
     {
+        trailMaterial.SetColor(trailBaseColor, curveTrailColor);
         rb.velocity = new Vector2(rb.velocity.x, 0);
         
         // Calculate a smooth, controlled curve using a normalized time factor
@@ -308,19 +326,24 @@ public class BallBehavior : MonoBehaviour
 
     private IEnumerator DisolveBall(float direction)
     {
+        isRespawing = true;
         fadeNumber = 0f;
-        ballMaterial.SetFloat("_Fade", fadeNumber);
+        ballMaterial.SetFloat(ballFade, fadeNumber);
+        trailRenderer.emitting = false;
+        yield return new WaitForSeconds(trailRenderer.time);
         rb.velocity = Vector2.zero;
         this.transform.position = Vector3.zero;
         yield return new WaitForSeconds(respawnTime);
         while (fadeNumber < 1)
         {
             fadeNumber += Time.deltaTime * desolveTime;
-            ballMaterial.SetFloat("_Fade", fadeNumber);
+            ballMaterial.SetFloat(ballFade, fadeNumber);
             yield return null;
         }
         
+        trailRenderer.emitting = true;
         rb.velocity = new Vector2(direction * currentSpeed, direction * currentSpeed);
+        isRespawing = false;
     }
 
     #endregion
