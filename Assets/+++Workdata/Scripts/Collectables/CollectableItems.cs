@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -22,11 +23,27 @@ public class CollectableItems : MonoBehaviour
     [Header("Item Effect")]
     [SerializeField] private Effect effect;
 
+    [Header("Item Color")] 
+    [ColorUsage(true, true)]
+    [SerializeField] private Color glowColor;
+    [SerializeField] private SpriteRenderer iconRenderer;
+
     private BallBehavior ball;
+
+    private int glowColorProperty = Shader.PropertyToID("_Glow_Color");
+    private Material itemMaterial;
 
     #endregion
 
     #region Unity Methods
+
+    private void Awake()
+    {
+        itemMaterial = GetComponent<SpriteRenderer>().material;
+
+        itemMaterial.SetColor(glowColorProperty, glowColor);
+        iconRenderer.material.SetColor(glowColorProperty, glowColor);
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
