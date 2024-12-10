@@ -230,4 +230,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effect: 4
   glowColor: {r: 16, g: 0.26524094, b: 0, a: 1}
-  iconRenderer: {fileID: 7245864292494222966}
+  collectedVFXPrefab: {fileID: 5086329382825828247, guid: 7301154d7e2bcf2479ee2ddd9b9c3aa0, type: 3}

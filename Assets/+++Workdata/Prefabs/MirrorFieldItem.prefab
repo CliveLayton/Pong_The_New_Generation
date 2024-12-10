@@ -146,7 +146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effect: 7
   glowColor: {r: 0, g: 4.002534, b: 15.8576355, a: 1}
-  iconRenderer: {fileID: 6725664085200033239}
+  collectedVFXPrefab: {fileID: 5086329382825828247, guid: 7301154d7e2bcf2479ee2ddd9b9c3aa0, type: 3}
 --- !u!1 &5954325005834740141
 GameObject:
   m_ObjectHideFlags: 0

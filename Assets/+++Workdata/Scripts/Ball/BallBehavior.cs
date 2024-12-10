@@ -44,6 +44,8 @@ public class BallBehavior : MonoBehaviour
 
     [Header("Mirror Field Item")]
     [SerializeField] private float rotationSpeed = 50f;
+    [SerializeField] private RectTransform playerPoints1;
+    [SerializeField] private RectTransform playerPoints2;
 
     private Rigidbody2D rb;
     private CircleCollider2D col;
@@ -54,6 +56,8 @@ public class BallBehavior : MonoBehaviour
     private bool isCurvy = false;
     private bool isRespawing = false;
     private GameObject gameField;
+    private Vector3 playerPoints1position;
+    private Vector3 playerPoints2position;
     private float startTime;
     private GameObject ballParticlesInst;
     private float fadeNumber = 0f;
@@ -74,6 +78,8 @@ public class BallBehavior : MonoBehaviour
         ballMaterial = GetComponentInChildren<SpriteRenderer>().material;
         trailRenderer = GetComponentInChildren<TrailRenderer>();
         trailMaterial = GetComponentInChildren<TrailRenderer>().material;
+        playerPoints1position = playerPoints1.anchoredPosition;
+        playerPoints2position = playerPoints2.anchoredPosition;
     }
 
     private void Start()
@@ -210,12 +216,16 @@ public class BallBehavior : MonoBehaviour
         if (gameField.transform.rotation.eulerAngles.y != 0)
         {
             gameField.transform.rotation = Quaternion.Slerp(gameField.transform.rotation, Quaternion.identity, rotationSpeed * Time.deltaTime);
+            playerPoints1.anchoredPosition = playerPoints1position;
+            playerPoints2.anchoredPosition = playerPoints2position;
         } 
         else if (gameField.transform.rotation.eulerAngles.y == 0)
         {
             Quaternion targetRotation = Quaternion.LookRotation(-transform.forward, Vector3.up);
 
             gameField.transform.rotation = Quaternion.Slerp(gameField.transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+            playerPoints1.anchoredPosition = playerPoints2position;
+            playerPoints2.anchoredPosition = playerPoints1position;
         }
     }
 
@@ -326,12 +336,12 @@ public class BallBehavior : MonoBehaviour
 
     private IEnumerator DisolveBall(float direction)
     {
+        rb.velocity = Vector2.zero;
         isRespawing = true;
         fadeNumber = 0f;
         ballMaterial.SetFloat(ballFade, fadeNumber);
         trailRenderer.emitting = false;
         yield return new WaitForSeconds(trailRenderer.time);
-        rb.velocity = Vector2.zero;
         this.transform.position = Vector3.zero;
         yield return new WaitForSeconds(respawnTime);
         while (fadeNumber < 1)

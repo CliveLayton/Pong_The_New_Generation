@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.VFX;
 using Random = UnityEngine.Random;
 
 public class CollectableItems : MonoBehaviour
@@ -26,12 +27,15 @@ public class CollectableItems : MonoBehaviour
     [Header("Item Color")] 
     [ColorUsage(true, true)]
     [SerializeField] private Color glowColor;
-    [SerializeField] private SpriteRenderer iconRenderer;
+
+    [SerializeField] private GameObject collectedVFXPrefab;
 
     private BallBehavior ball;
 
     private int glowColorProperty = Shader.PropertyToID("_Glow_Color");
     private Material itemMaterial;
+    private Material iconMaterial;
+    private int vFXColorProperty = Shader.PropertyToID("Particle Color");
 
     #endregion
 
@@ -40,9 +44,10 @@ public class CollectableItems : MonoBehaviour
     private void Awake()
     {
         itemMaterial = GetComponent<SpriteRenderer>().material;
+        iconMaterial = transform.GetChild(0).GetComponent<SpriteRenderer>().material;
 
         itemMaterial.SetColor(glowColorProperty, glowColor);
-        iconRenderer.material.SetColor(glowColorProperty, glowColor);
+        iconMaterial.SetColor(glowColorProperty, glowColor);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -78,6 +83,11 @@ public class CollectableItems : MonoBehaviour
                     ball.MirrorField();
                     break;
             }
+
+            VisualEffect collectedVFX = Instantiate(collectedVFXPrefab, transform.position, Quaternion.identity, null).GetComponent<VisualEffect>();
+            collectedVFX.SetVector4(vFXColorProperty, glowColor);
+            collectedVFX.SendEvent("OnCollect");
+            Destroy(collectedVFX.gameObject, 1f);
             
             Destroy(gameObject);
         }

@@ -2241,7 +2241,7 @@ Transform:
   m_GameObject: {fileID: 921101664}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 18.5, y: 0, z: 0}
+  m_LocalPosition: {x: 18.79, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2812,7 +2812,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentSpeed: 0
-  startingSpeed: 13
+  startingSpeed: 17
   pointCounter: {fileID: 975876919}
   particlesPrefab: {fileID: 2084919596970287468, guid: fb5523edaa2400a48ac3e2d144840d1a, type: 3}
   mirrorParticles: {x: 0, y: 0, z: 1, w: -0.00000004371139}
@@ -2822,8 +2822,8 @@ MonoBehaviour:
   timeToEffectBall: 0.5
   maxSpeedValue: 10
   minSpeedValue: 1
-  maxSpeedLimit: 28
-  minSpeedLimit: 10
+  maxSpeedLimit: 35
+  minSpeedLimit: 14
   waveAmplitude: 4
   waveFrequency: 4
   effectTime: 2
@@ -2832,6 +2832,8 @@ MonoBehaviour:
   curveDuration: 4
   curveTrailColor: {r: 14.605154, g: 0, b: 0.25674215, a: 1}
   rotationSpeed: 50
+  playerPoints1: {fileID: 1659185715}
+  playerPoints2: {fileID: 1346288951}
 --- !u!1 &1268581539
 GameObject:
   m_ObjectHideFlags: 0
@@ -2953,7 +2955,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7b73a428f1b03e49a2b5ec2485b4ad9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 10
+  movementSpeed: 20
   speedChangeRate: 10
   wobbleSprite: {fileID: 1540852638}
   wobbleTime: 0.7
@@ -3389,7 +3391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea55bf80a02c59545b8817462c089f32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 10
+  movementSpeed: 20
   speedChangeRate: 10
   wobbleSprite: {fileID: 717955751}
   wobbleTime: 0.7
@@ -3706,7 +3708,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1374850957}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4182,7 +4184,7 @@ Transform:
   m_GameObject: {fileID: 1611291751}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -18.5, y: 0, z: 0}
+  m_LocalPosition: {x: -18.71, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5510,8 +5512,8 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 619394802}
   - {fileID: 475182991}
-  - {fileID: 1374850961}
   - {fileID: 58177674}
+  - {fileID: 1374850961}
   - {fileID: 1232055534}
   - {fileID: 644062401}
   - {fileID: 777099817}
