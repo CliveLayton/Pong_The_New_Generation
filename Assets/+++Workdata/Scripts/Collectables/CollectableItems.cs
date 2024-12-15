@@ -31,6 +31,7 @@ public class CollectableItems : MonoBehaviour
     [SerializeField] private GameObject collectedVFXPrefab;
 
     private BallBehavior ball;
+    private BallMainMenu ballMainMenu;
 
     private int glowColorProperty = Shader.PropertyToID("_Glow_Color");
     private Material itemMaterial;
@@ -56,33 +57,67 @@ public class CollectableItems : MonoBehaviour
         {
             ball = other.GetComponent<BallBehavior>();
 
-            switch (effect)
+            if (ball == null)
             {
-                case Effect.SpeedUp:
-                    ball.SpeedBallUp();
-                    break;
-                case Effect.SlowDown:
-                    ball.SlowBallDown();
-                    break;
-                case Effect.ThrowBack:
-                    ball.ThrowBallBack();
-                    break;
-                case Effect.ThrowBackCircle:
-                    ball.ThrowBallBackInCircles();
-                    break;
-                case Effect.CircleMove:
-                    ball.ChangeBallMovementCircle();
-                    break;
-                case Effect.WaveMove:
-                    ball.ChangeBallMovementWavy();
-                    break;
-                case Effect.CurveMove:
-                    ball.ChangeBallMovementCurvy();
-                    break;
-                case Effect.MirrorField:
-                    ball.MirrorField();
-                    break;
+                ballMainMenu = other.GetComponent<BallMainMenu>();
+                
+                switch (effect)
+                {
+                    case Effect.SpeedUp:
+                        ballMainMenu.SpeedBallUp();
+                        break;
+                    case Effect.SlowDown:
+                        ballMainMenu.SlowBallDown();
+                        break;
+                    case Effect.ThrowBack:
+                        ballMainMenu.ThrowBallBack();
+                        break;
+                    case Effect.ThrowBackCircle:
+                        ballMainMenu.ThrowBallBackInCircles();
+                        break;
+                    case Effect.CircleMove:
+                        ballMainMenu.ChangeBallMovementCircle();
+                        break;
+                    case Effect.WaveMove:
+                        ballMainMenu.ChangeBallMovementWavy();
+                        break;
+                    case Effect.CurveMove:
+                        ballMainMenu.ChangeBallMovementCurvy();
+                        break;
+                }
             }
+            else if (ball != null)
+            {
+                switch (effect)
+                {
+                    case Effect.SpeedUp:
+                        ball.SpeedBallUp();
+                        break;
+                    case Effect.SlowDown:
+                        ball.SlowBallDown();
+                        break;
+                    case Effect.ThrowBack:
+                        ball.ThrowBallBack();
+                        break;
+                    case Effect.ThrowBackCircle:
+                        ball.ThrowBallBackInCircles();
+                        break;
+                    case Effect.CircleMove:
+                        ball.ChangeBallMovementCircle();
+                        break;
+                    case Effect.WaveMove:
+                        ball.ChangeBallMovementWavy();
+                        break;
+                    case Effect.CurveMove:
+                        ball.ChangeBallMovementCurvy();
+                        break;
+                    case Effect.MirrorField:
+                        ball.MirrorField();
+                        break;
+                }
+            }
+
+            
 
             VisualEffect collectedVFX = Instantiate(collectedVFXPrefab, transform.position, Quaternion.identity, null).GetComponent<VisualEffect>();
             collectedVFX.SetVector4(vFXColorProperty, glowColor);

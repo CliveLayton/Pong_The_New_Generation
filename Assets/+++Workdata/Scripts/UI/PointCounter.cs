@@ -1,6 +1,7 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PointCounter : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class PointCounter : MonoBehaviour
 
    [SerializeField] private CanvasGroup player1Panel;
    [SerializeField] private CanvasGroup player2Panel;
+
+   [SerializeField] private int pointsToWin = 10;
    
    private int pointsPlayer1;
    private int pointsPlayer2;
@@ -47,13 +50,13 @@ public class PointCounter : MonoBehaviour
          player2Points.text = pointsPlayer2.ToString();
       }
 
-      if (pointsPlayer1 >= 10)
+      if (pointsPlayer1 >= pointsToWin)
       {
          player1Panel.ShowCanvasGroup();
          Time.timeScale = 0f;
       }
 
-      if (pointsPlayer2 >= 10)
+      if (pointsPlayer2 >= pointsToWin)
       {
          player2Panel.ShowCanvasGroup();
          Time.timeScale = 0f;
@@ -74,6 +77,17 @@ public class PointCounter : MonoBehaviour
       pointsPlayer2 = resetPoint;
       player1Points.text = pointsPlayer1.ToString();
       player2Points.text = pointsPlayer2.ToString();
+   }
+
+   public void ToMainMenu()
+   {
+      SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+      Time.timeScale = 1f;
+   }
+
+   public void QuitGame()
+   {
+      Application.Quit();
    }
 
    #endregion
